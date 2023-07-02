@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/3000f24819.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row w-f-row">
+        <div class="col-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+          <div class="card padding-15">
+            <div class="card-body">
+              <form id="city-form">
+                <div class="row">
+                  <div class="col-9">
+                    <input
+                      type="search"
+                      id="city-input"
+                      placeholder="Search your city"
+                    />
+                   <input type="submit" value="Search" />
+                  </div>
+              </form>
+                  <div class="col-1">
+                  <button id="current-location">Current</button>
+                  </div>
+                </div>
+              <div class="row margin-20">
+                <div class="col-6 col-lg-5">
+                  <h1 id="city-output"></h1>
+                </div>
+                <div class="col-auto">
+                  <div class="row">
+                    <div class="col">
+                      <strong id="time">Time</strong>,
+                      <span id="day">Day</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <span id="month">Month</span> <span id="date">Date</span>,
+                      <span id="year">Year</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row margin-10">
+                <div class="col-6 col-lg-5">
+                  <img
+                    src="images/sun-solid.svg"
+                    alt="Weather"
+                    class="today-temp-svg"
+                  />
+                </div>
+                <div class="col-3">
+                  <span id="degrees"></span>
+                  <a href="#" class="units" id="celsius">°C</a>
+                  <span class="units"> | </span>
+                  <a href="#" class="units" id="fahrenheit">°F</a>
+                </div>
+                <div class="col-3">
+                  <span id="high-t" class="today-temp">25°</span>
+                  <span id="low-t" class="today-temp">13°</span>
+                </div>
+              </div>
+              <div class="row text-center margin-20">
+                <div class="col-2">Today</div>
+                <div class="col-2">Date</div>
+                <div class="col-2">Date</div>
+                <div class="col-2">Date</div>
+                <div class="col-2">Date</div>
+                <div class="col-2">Date</div>
+              </div>
+              <div class="row text-center margin-5">
+                <div class="col-2">
+                  <img
+                    src="images/sun-solid.svg"
+                    alt="Weather"
+                    class="w-line"
+                  />
+                </div>
+                <div class="col-2">
+                  <img
+                    src="images/cloud-sun-solid.svg"
+                    alt="Weather"
+                    class="w-line"
+                  />
+                </div>
+                <div class="col-2">
+                  <img
+                    src="images/cloud-solid.svg"
+                    alt="Weather"
+                    class="w-line"
+                  />
+                </div>
+                <div class="col-2">
+                  <img
+                    src="images/cloud-rain-solid.svg"
+                    alt="Weather"
+                    class="w-line"
+                  />
+                </div>
+                <div class="col-2">
+                  <img
+                    src="images/cloud-sun-rain-solid.svg"
+                    alt="Weather"
+                    class="w-line"
+                  />
+                </div>
+                <div class="col-2">
+                  <img
+                    src="images/cloud-showers-heavy-solid.svg"
+                    alt="Weather"
+                    class="w-line"
+                  />
+                </div>
+              </div>
+              <div class="row text-center margin-5">
+                <div class="col-2">
+                  <span class="high-t">25°</span> <span class="low-t">13°</span>
+                </div>
+                <div class="col-2">
+                  <span class="high-t">H°</span> <span class="low-t">L°</span>
+                </div>
+                <div class="col-2">
+                  <span class="high-t">H°</span> <span class="low-t">L°</span>
+                </div>
+                <div class="col-2">
+                  <span class="high-t">H°</span> <span class="low-t">L°</span>
+                </div>
+                <div class="col-2">
+                  <span class="high-t">H°</span> <span class="low-t">L°</span>
+                </div>
+                <div class="col-2">
+                  <span class="high-t">H°</span> <span class="low-t">L°</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
