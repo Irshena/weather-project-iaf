@@ -20,7 +20,7 @@
     font-size: 28px;
   }
   #degrees {
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 500;
   }
   a.selection {
@@ -36,17 +36,19 @@
   a.units:hover {
     color: #3264c9;
   }
-  #high-t {
-    color: #f54040;
+  ul.weather {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
   }
-  #low-t {
-    color: #3264c9;
+  .weather li {
+    list-style: none;
   }
   .today-temp {
     font-size: 18px;
   }
-  .today-temp-svg {
-    width: 60px;
+  li:first-letter {
+    text-transform: capitalize;
   }
   .w-line {
     max-width: 40px;
@@ -59,4 +61,9 @@
     border: 2px solid #118a7e;
     border-radius: 3px;
     color: #fff;
-  }  
+  }
+  #today-weather-icon {
+    position: relative;
+    top: -28px;
+    left: -17px;
+  }

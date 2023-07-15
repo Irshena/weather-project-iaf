@@ -1,22 +1,34 @@
-let now = new Date();
+// to display weather:
 
-function showTime(todayData) {
-  let hours = todayData.getHours();
+function showWeather(response) {
+  let currentCity = document.querySelector("#city-output");
+  currentCity.innerHTML = response.data.city;
+  let currentTemperature = Math.round(response.data.temperature.current);
+  let degrees = document.querySelector("#degrees");
+  degrees.innerHTML = currentTemperature;
+  document.querySelector("#description").innerHTML = response.data.condition.description;
+  document.querySelector("#humidity").innerHTML = `${
+    response.data.temperature.humidity
+  }%`;
+  document.querySelector("#wind-speed").innerHTML = `${Math.round(
+    response.data.wind.speed
+  )} km/h`;
+  let todayWeatherPicture = document.querySelector("#today-weather-icon");
+  todayWeatherPicture.setAttribute("src", response.data.condition.icon_url); 
+  todayWeatherPicture.setAttribute("alt", response.data.condition.description); 
+  
+  let now = new Date(response.data.time * 1000);
+
+  let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = todayData.getMinutes();
+  let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  document.querySelector("#time").innerHTML = `${hours}:${minutes}`;
 
-  return `${hours}:${minutes}`;
-}
-
-let currentTime = document.querySelector("#time");
-currentTime.innerHTML = showTime(now);
-
-function showDay(todayData) {
   let days = [
     "Sunday",
     "Monday",
@@ -26,15 +38,9 @@ function showDay(todayData) {
     "Friday",
     "Saturday"
   ];
-  let day = days[todayData.getDay()];
+  let day = days[now.getDay()];
+  document.querySelector("#day").innerHTML = day;
 
-  return day;
-}
-
-let currentDay = document.querySelector("#day");
-currentDay.innerHTML = showDay(now);
-
-function showMonth(todayData) {
   let months = [
     "January",
     "February",
@@ -49,54 +55,23 @@ function showMonth(todayData) {
     "November",
     "December"
   ];
-  let month = months[todayData.getMonth()];
+  let month = months[now.getMonth()];
+  document.querySelector("#month").innerHTML = month;
 
-  return month;
-}
+  let date = now.getDate();
+  document.querySelector("#date").innerHTML = date;
 
-let currentMonth = document.querySelector("#month");
-currentMonth.innerHTML = showMonth(now);
-
-function showDate(todayData) {
-  let date = todayData.getDate();
-
-  return date;
-}
-
-let currentDate = document.querySelector("#date");
-currentDate.innerHTML = showDate(now);
-
-function showYear(todayData) {
-  let year = todayData.getFullYear();
-
-  return year;
-}
-let currentYear = document.querySelector("#year");
-currentYear.innerHTML = showYear(now);
-
-// to display weather:
-
-function showWeather(response) {
-  let currentCity = document.querySelector("#city-output");
-  currentCity.innerHTML = response.data.name;
-  let currentTemperature = Math.round(response.data.main.temp);
-  let degrees = document.querySelector("#degrees");
-  degrees.innerHTML = currentTemperature;
-  document.querySelector("#high-t").innerHTML = `${Math.round(
-    response.data.main.temp_max
-  )}°`;
-  document.querySelector("#low-t").innerHTML = `${Math.round(
-    response.data.main.temp_min
-  )}°`;
+  let year = now.getFullYear();
+  document.querySelector("#year").innerHTML = year;
 }
 
 // to get defenite city weather:
 
 function searchCity(cityName) {
-  let apiKey = "578c15a350f88f1079a1a1c56c09d39b";
+  let apiKey = "ao16f54b719b1f7801e48t3fd0484c74";
   let units = "metric";
-  let language = "en";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}&lang=${language}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}&units=${units}`;
+ 
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -119,10 +94,9 @@ cityValueForm.addEventListener("submit", handleCityValue);
 function getApiCurrentLocationWeather(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let language = "en";
   let units = "metric";
-  let apiKey = "578c15a350f88f1079a1a1c56c09d39b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}&lang=${language}`;
+  let apiKey = "ao16f54b719b1f7801e48t3fd0484c74";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showWeather);
 }

@@ -62,11 +62,7 @@
               </div>
               <div class="row margin-10">
                 <div class="col-6 col-lg-5">
-                  <img
-                    src="images/sun-solid.svg"
-                    alt="Weather"
-                    class="today-temp-svg"
-                  />
+                  <img src="#" alt="Today Weather" id="today-weather-icon" />
                 </div>
                 <div class="col-3">
                   <span id="degrees"></span>
@@ -75,8 +71,11 @@
                   <a href="#" class="units" id="fahrenheit">°F</a>
                 </div>
                 <div class="col-3">
-                  <span id="high-t" class="today-temp">25°</span>
-                  <span id="low-t" class="today-temp">13°</span>
+                  <ul class="weather">
+                    <li><strong id="description"></strong></li>
+                    <li>Humidity: <span id="humidity"></span></li>
+                    <li>Wind speed: <span id="wind-speed"></span></li>
+                  </ul>
                 </div>
               </div>
               <div class="row text-center margin-20">
