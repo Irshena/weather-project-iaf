@@ -78,11 +78,54 @@ function searchCity(cityName) {
   axios.get(apiUrl).then(showWeather);
 }
 
+// to display weather forecast:
+
+function showWeatherForecast(response) {
+ console.log(response);
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let days = ["Today", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="weather-forecast-day">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt="Weather description"
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="high-t"> H° </span>
+          <span class="low-t"> L° </span>
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+// to get defenite city weather forecast:
+
+function searchCityForecast(cityName) {
+  let apiKey = "ao16f54b719b1f7801e48t3fd0484c74";
+  let units = "metric";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}&units=${units}`;
+ 
+  axios.get(apiUrl).then(showWeatherForecast);
+}
+
 function handleCityValue(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
    if (cityInput.value) {
     searchCity(cityInput.value);
+    searchCityForecast(cityInput.value);
   } else {
     alert("You forgot to enter your city 😉");
   }
@@ -103,16 +146,28 @@ function getApiCurrentLocationWeather(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function getApiCurrentLocationWeatherForecast(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let units = "metric";
+  let apiKey = "ao16f54b719b1f7801e48t3fd0484c74";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showWeatherForecast);
+}
+
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeather);
+  navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeatherForecast);
 }
 
 let currentCityButton = document.querySelector("#current-location");
 currentCityButton.addEventListener("click", getCurrentLocation);
 
-// to display current location weather by default
+// to display current location weather and forecast by default
 navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeather);
+navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeatherForecast);
 
 // units conversion
 

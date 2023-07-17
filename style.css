@@ -1,69 +1,88 @@
+h1 {
+  font-size: 28px;
+}
+
 .card-body {
-    min-width: 50%;
-  }
-  .w-f-row {
-    margin-top: 50px;
-  }
-  .padding-15 {
-    padding: 15px;
-  }
-  .margin-20 {
-    margin-top: 20px;
-  }
-  .margin-10 {
-    margin-top: 10px;
-  }
-  .margin-5 {
-    margin-top: 5px;
-  }
-  h1 {
-    font-size: 28px;
-  }
-  #degrees {
-    font-size: 28px;
-    font-weight: 500;
-  }
-  a.selection {
-    color: #000;
-  }
-  .units {
-    font-size: 18px;
-    color: #aeafb0;
-  }
-  a.units {
-    text-decoration: none;
-  }
-  a.units:hover {
-    color: #3264c9;
-  }
-  ul.weather {
-    padding: 0;
-    margin: 0;
-    font-size: 10px;
-  }
-  .weather li {
-    list-style: none;
-  }
-  .today-temp {
-    font-size: 18px;
-  }
-  li:first-letter {
-    text-transform: capitalize;
-  }
-  .w-line {
-    max-width: 40px;
-    max-height: 30px;
-    width: 100%;
-    height: auto;
-  }
-  #current-location {
-    background-color: #118a7e;
-    border: 2px solid #118a7e;
-    border-radius: 3px;
-    color: #fff;
-  }
-  #today-weather-icon {
-    position: relative;
-    top: -28px;
-    left: -17px;
-  }
+  min-width: 50%;
+}
+
+.w-f-row {
+  margin-top: 50px;
+}
+
+.padding-15 {
+  padding: 15px;
+}
+
+.margin-20 {
+  margin-top: 20px;
+}
+
+.margin-10 {
+  margin-top: 10px;
+}
+
+#degrees {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+a.selection {
+  color: #000;
+}
+
+.units {
+  font-size: 18px;
+  color: #aeafb0;
+}
+
+a.units {
+  text-decoration: none;
+}
+
+a.units:hover {
+  color: #3264c9;
+}
+
+ul.weather {
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+}
+
+.weather li {
+  list-style: none;
+}
+
+.today-temp {
+  font-size: 18px;
+}
+
+li:first-letter {
+  text-transform: capitalize;
+}
+
+#weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#current-location {
+  background-color: #118a7e;
+  border: 2px solid #118a7e;
+  border-radius: 3px;
+  color: #fff;
+}
+
+#today-weather-icon {
+  position: relative;
+  top: -28px;
+  left: -17px;
+}
+
+.high-t {
+  color: #f54040;
+}
+.low-t {
+  color: #3264c9;}
