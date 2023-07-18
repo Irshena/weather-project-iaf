@@ -88,13 +88,11 @@ function formatTimestamp(timestamp) {
   }
 
 function showWeatherForecast(response) {
- console.log(response);
- console.log(response.data.daily[0].time);
- let forecast = response.data.daily;
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
 
    let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (dayInfo, index) {
+   forecast.forEach(function (dayInfo, index) {
     if (index < 6) {
     let date = formatTimestamp(dayInfo.time);
     if (index === 0) {
@@ -115,7 +113,7 @@ function showWeatherForecast(response) {
           <span class="low-t"> ${Math.round(dayInfo.temperature.minimum)}° </span>
       </div>
   `;
-    }
+      }
    });
 
   forecastHTML = forecastHTML + `</div>`;
