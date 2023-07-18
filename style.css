@@ -27,21 +27,8 @@ h1 {
   font-weight: 500;
 }
 
-a.selection {
-  color: #000;
-}
-
 .units {
   font-size: 18px;
-  color: #aeafb0;
-}
-
-a.units {
-  text-decoration: none;
-}
-
-a.units:hover {
-  color: #3264c9;
 }
 
 ul.weather {
@@ -79,9 +66,3 @@ li:first-letter {
   top: -28px;
   left: -17px;
 }
-
-.high-t {
-  color: #f54040;
-}
-.low-t {
-  color: #3264c9;}

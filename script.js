@@ -14,8 +14,6 @@ function showWeather(response) {
   let todayWeatherPicture = document.querySelector("#today-weather-icon");
   todayWeatherPicture.setAttribute("src", response.data.condition.icon_url); 
   todayWeatherPicture.setAttribute("alt", response.data.condition.description);
-  document.querySelector("#celsius").classList.add("selection");
-  document.querySelector("#fahrenheit").classList.remove("selection"); 
   
   let now = new Date(response.data.time * 1000);
 
@@ -180,30 +178,3 @@ currentCityButton.addEventListener("click", getCurrentLocation);
 // to display current location weather and forecast by default
 navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeather);
 navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeatherForecast);
-
-// units conversion
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let degrees = document.querySelector("#degrees");
-  let degreesFahrenheit = Math.round((degreesCelsius * 9) / 5 + 32);
-  degrees.innerHTML = degreesFahrenheit;
-  document.querySelector("#fahrenheit").classList.add("selection");
-  document.querySelector("#celsius").classList.remove("selection");
-}
-
-function showCelsius(event) {
-  event.preventDefault();
-  let degrees = document.querySelector("#degrees");
-  degrees.innerHTML = Math.round(degreesCelsius);
-document.querySelector("#celsius").classList.add("selection");
-document.querySelector("#fahrenheit").classList.remove("selection");
-}
-
-let degreesCelsius = null;
-
-let fahrenheitTemperature = document.querySelector("#fahrenheit");
-fahrenheitTemperature.addEventListener("click", showFahrenheit);
-
-let celsiusTemperature = document.querySelector("#celsius");
-celsiusTemperature.addEventListener("click", showCelsius);
