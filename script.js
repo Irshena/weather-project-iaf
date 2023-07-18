@@ -1,12 +1,9 @@
 // to display weather:
 
 function showWeather(response) {
-  let currentCity = document.querySelector("#city-output");
-  currentCity.innerHTML = response.data.city;
-  let currentTemperature = Math.round(response.data.temperature.current);
+  document.querySelector("#city-output").innerHTML = response.data.city;
+  document.querySelector("#degrees").innerHTML = Math.round(response.data.temperature.current);
   degreesCelsius = response.data.temperature.current;
-  let degrees = document.querySelector("#degrees");
-  degrees.innerHTML = currentTemperature;
   document.querySelector("#description").innerHTML = response.data.condition.description;
   document.querySelector("#humidity").innerHTML = `${
     response.data.temperature.humidity
@@ -80,31 +77,46 @@ function searchCity(cityName) {
 
 // to display weather forecast:
 
+function formatTimestamp(timestamp) {
+  let time = new Date(timestamp * 1000);
+  let date = time.getDate();
+  let month = time.getMonth() + 1;
+  if (month < 10) {
+    month = `0${month}`;
+  }
+  return `${date}.${month}`;
+  }
+
 function showWeatherForecast(response) {
  console.log(response);
+ console.log(response.data.daily[0].time);
+ let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
 
-  let days = ["Today", "Fri", "Sat", "Sun"];
-
-  let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
+   let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (dayInfo, index) {
+    if (index < 6) {
+    let date = formatTimestamp(dayInfo.time);
+    if (index === 0) {
+      date = "<strong>Today</strong>";
+    }
+    
     forecastHTML =
       forecastHTML +
       `
       <div class="col-2">
-        <div class="weather-forecast-day">${day}</div>
+        ${date}
         <img
-          src="http://openweathermap.org/img/wn/50d@2x.png"
-          alt="Weather description"
+          src="${dayInfo.condition.icon_url}"
+          alt="${dayInfo.condition.description}"
           width="42"
         />
-        <div class="weather-forecast-temperatures">
-          <span class="high-t"> H° </span>
-          <span class="low-t"> L° </span>
-        </div>
+          <span class="high-t"> ${Math.round(dayInfo.temperature.maximum)}° </span>
+          <span class="low-t"> ${Math.round(dayInfo.temperature.minimum)}° </span>
       </div>
   `;
-  });
+    }
+   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -120,6 +132,8 @@ function searchCityForecast(cityName) {
   axios.get(apiUrl).then(showWeatherForecast);
 }
 
+// service function - handle city name and launch API request:
+
 function handleCityValue(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
@@ -134,7 +148,7 @@ function handleCityValue(event) {
 let cityValueForm = document.querySelector("#city-form");
 cityValueForm.addEventListener("submit", handleCityValue);
 
-// to get current location weather with "Current" button:
+// to get current location weather and forecast with "Current" button:
 
 function getApiCurrentLocationWeather(position) {
   let latitude = position.coords.latitude;
