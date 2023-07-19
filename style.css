@@ -2,15 +2,13 @@ h1 {
   font-size: 28px;
 }
 
-.card-body {
-  min-width: 50%;
-}
 .card {
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, .1);
 }
 
 .w-f-row {
   margin-top: 50px;
+  margin-left: -75px;
 }
 
 .padding-15 {
@@ -76,4 +74,8 @@ li:first-letter {
 
 .low-t {
   color: #3264c9;
+}
+
+.link {
+  font-size: 11px;
 }

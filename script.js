@@ -263,5 +263,10 @@ let currentCityButton = document.querySelector("#current-location");
 currentCityButton.addEventListener("click", getCurrentLocation);
 
 // to display current location weather and forecast by default
-navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeather);
-navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeatherForecast);
+//navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeather);
+//navigator.geolocation.getCurrentPosition(getApiCurrentLocationWeatherForecast);
+
+// to display Kyiv weather and forecast by default
+
+searchCity("Kyiv");
+searchCityForecast("Kyiv");
