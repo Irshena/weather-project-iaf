@@ -1,3 +1,88 @@
+// to change background according to weather:
+
+function changeBackground(icon) {
+let appCard = document.querySelector("#app-card");
+console.log(icon);
+switch (icon) {
+case "clear-sky-day":
+  appCard.style.background = "radial-gradient(401px at 50.6% -0.3%, rgba(255, 255, 255, 0.31) 1.2%, rgb(165, 224, 248) 100.2%)";
+  appCard.style.color = "#000";
+  break;
+case "clear-sky-night":
+  appCard.style.background = "linear-gradient(36deg, rgb(22, 23, 30) 3.2%, rgb(118, 124, 163) 97.6%)";
+  appCard.style.color = "#fff";
+  break;
+case "few-clouds-day":
+  appCard.style.backgroundImage = "url(img/clouds.png)";
+  appCard.style.color = "#000";
+  break;
+case "few-clouds-night":
+  appCard.style.backgroundImage = "url(img/clouds-night.png)";
+  appCard.style.color = "#fff";
+  break;
+case "scattered-clouds-day":
+  appCard.style.backgroundImage = "url(img/clouds.png)";
+  appCard.style.color = "#000";
+  break;
+case "scattered-clouds-night":
+  appCard.style.backgroundImage = "url(img/clouds-night.png)";
+  appCard.style.color = "#fff";
+  break;
+case "broken-clouds-day":
+  appCard.style.backgroundImage = "url(img/broken-clouds-day.png)";
+  appCard.style.color = "#000";
+  break;
+case "broken-clouds-night":
+  appCard.style.backgroundImage = "url(img/broken-clouds-night.png)";
+  appCard.style.color = "#fff";
+  break;
+case "shower-rain-day":
+  appCard.style.backgroundImage = "url(img/rain-day.png)";
+  appCard.style.color = "#000";
+  break;
+case "shower-rain-night":
+  appCard.style.backgroundImage = "url(img/rain-night.png)";
+  appCard.style.color = "#fff";
+  break;
+case "rain-day":
+  appCard.style.backgroundImage = "url(img/rain-day.png)";
+  appCard.style.color = "#000";
+  break;
+case "rain-night":
+  appCard.style.backgroundImage = "url(img/rain-night.png)";
+  appCard.style.color = "#fff";
+  break;
+case "thunderstorm-day":
+  appCard.style.backgroundImage = "url(img/storm-day.png)";
+  appCard.style.color = "#000";
+  break;
+case "thunderstorm-night":
+  appCard.style.backgroundImage = "url(img/storm-night.png)";
+  appCard.style.color = "#fff";
+  break;
+case "snow-day":
+  appCard.style.backgroundImage = "url(img/snow-day.png)";
+  appCard.style.color = "#000";
+  break;
+case "snow-night":
+  appCard.style.backgroundImage = "url(img/snow-night.png)";
+  appCard.style.color = "#fff";
+  break;
+case "mist-night":
+  appCard.style.background = "linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%)";
+  appCard.style.color = "#000";
+  break;
+case "mist-day":
+  appCard.style.background = "linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%)";
+  appCard.style.color = "#000";
+  break;
+default:
+  appCard.style.background = "#fff";
+  appCard.style.color = "#000";
+  break;
+  }
+}
+
 // to display weather:
 
 function showWeather(response) {
@@ -14,7 +99,9 @@ function showWeather(response) {
   let todayWeatherPicture = document.querySelector("#today-weather-icon");
   todayWeatherPicture.setAttribute("src", response.data.condition.icon_url); 
   todayWeatherPicture.setAttribute("alt", response.data.condition.description);
-  
+
+  changeBackground(response.data.condition.icon);
+
   let now = new Date(response.data.time * 1000);
 
   let hours = now.getHours();
