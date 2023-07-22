@@ -93,7 +93,7 @@ li:first-letter {
     font-size: 20px;
   }
 
-  .col-4, .col-2{
+  .col-4 {
     max-width: fit-content;
   }
 }
