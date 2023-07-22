@@ -11,13 +11,6 @@ h1 {
   margin-left: -75px;
 }
 
-@media (max-width: 767px) {
-  .w-f-row {
-      margin-top: 10px;
-      margin-left: -10px;
-    }
-}
-
 .padding-15 {
   padding: 15px;
 }
@@ -85,4 +78,26 @@ li:first-letter {
 
 .link {
   font-size: 11px;
+}
+@media (max-width: 767px) {
+  .w-f-row {
+    margin-top: 10px;
+    margin-left: -10px;
+  }
+
+  #city-input {
+    max-width: 70%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  #degrees {
+    font-size: 20px;
+  }
+
+  .col-6 {
+    max-width: fit-content;
+  }
 }
