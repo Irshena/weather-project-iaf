@@ -2,13 +2,12 @@ h1 {
   font-size: 28px;
 }
 
-.container {
-  margin-top: 12px;
-  max-width: 35%;
-}
-
 .card {
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.w-f-row {
+  margin-top: 50px;
 }
 
 .padding-15 {

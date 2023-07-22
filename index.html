@@ -21,71 +21,75 @@
   </head>
   <body>
     <div class="container">
-      <div class="card padding-15" id="app-card">
-        <div class="card-body">
-          <div class="row g-1">
-            <div class="col-auto">
-              <form id="city-form">
-                <input
-                  type="search"
-                  id="city-input"
-                  placeholder="Search your city"
-                />
-                <input type="submit" value="Search" />
-              </form>
-            </div>
+      <div class="row w-f-row">
+        <div class="col-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+          <div class="card padding-15" id="app-card">
+            <div class="card-body">
+              <div class="row g-1">
+                <div class="col-auto">
+                  <form id="city-form">
+                    <input
+                      type="search"
+                      id="city-input"
+                      placeholder="Search your city"
+                    />
+                    <input type="submit" value="Search" />
+                  </form>
+                </div>
 
-            <div class="col-auto">
-              <button id="current-location">Current</button>
-            </div>
-          </div>
-          <div class="row margin-20">
-            <div class="col-6 col-lg-5">
-              <h1 id="city-output"></h1>
-            </div>
-            <div class="col-auto">
-              <div class="row">
-                <div class="col">
-                  <strong id="time">Time</strong>,
-                  <span id="day">Day</span>
+                <div class="col-auto">
+                  <button id="current-location">Current</button>
                 </div>
               </div>
-              <div class="row">
-                <div class="col">
-                  <span id="month">Month</span> <span id="date">Date</span>,
-                  <span id="year">Year</span>
+              <div class="row margin-20">
+                <div class="col-6 col-lg-5">
+                  <h1 id="city-output"></h1>
+                </div>
+                <div class="col-auto">
+                  <div class="row">
+                    <div class="col">
+                      <strong id="time">Time</strong>,
+                      <span id="day">Day</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <span id="month">Month</span> <span id="date">Date</span>,
+                      <span id="year">Year</span>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div class="row margin-10">
+                <div class="col-6 col-lg-5">
+                  <img src="#" alt="Today Weather" id="today-weather-icon" />
+                </div>
+                <div class="col-3">
+                  <span id="degrees"></span>
+                  <span class="units">°C</span>
+                </div>
+                <div class="col-3">
+                  <ul class="weather">
+                    <li><strong id="description"></strong></li>
+                    <li>Humidity: <span id="humidity"></span></li>
+                    <li>Wind speed: <span id="wind-speed"></span></li>
+                  </ul>
+                </div>
+              </div>
+              <div id="weather-forecast"></div>
             </div>
           </div>
-          <div class="row margin-10">
-            <div class="col-6 col-lg-5">
-              <img src="#" alt="Today Weather" id="today-weather-icon" />
-            </div>
-            <div class="col-3">
-              <span id="degrees"></span>
-              <span class="units">°C</span>
-            </div>
-            <div class="col-3">
-              <ul class="weather">
-                <li><strong id="description"></strong></li>
-                <li>Humidity: <span id="humidity"></span></li>
-                <li>Wind speed: <span id="wind-speed"></span></li>
-              </ul>
-            </div>
-          </div>
-          <div id="weather-forecast"></div>
         </div>
-      </div>
-      <div class="link">
-        <a
-          href="https://github.com/Irshena/weather-project-iaf/tree/with-backgrounds"
-          target="_blank"
-          alt="See on GitHub"
-        >
-          Open-source code</a
-        >
-        by Iaryna Fomina
+        <div class="link">
+          <a
+            href="https://github.com/Irshena/weather-project-iaf/tree/with-backgrounds"
+            target="_blank"
+            alt="See on GitHub"
+          >
+            Open-source code</a
+          >
+          by Iaryna Fomina
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
