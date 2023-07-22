@@ -188,14 +188,15 @@ function showWeatherForecast(response) {
       forecastHTML +
       `
       <div class="col-2">
-        ${date}
+        <div>${date}</div>
         <img
           src="${dayInfo.condition.icon_url}"
           alt="${dayInfo.condition.description}"
           width="42"
-        />
-          <span class="high-t"> ${Math.round(dayInfo.temperature.maximum)}° </span>
-          <span class="low-t"> ${Math.round(dayInfo.temperature.minimum)}° </span>
+        /><div>
+            <span class="high-t"> ${Math.round(dayInfo.temperature.maximum)}° </span>
+            <span class="low-t"> ${Math.round(dayInfo.temperature.minimum)}° </span>
+          </div>
       </div>
   `;
       }
