@@ -11,6 +11,13 @@ h1 {
   margin-left: -75px;
 }
 
+@media (max-width: 767px) {
+  .w-f-row {
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+}
+
 .padding-15 {
   padding: 15px;
 }
